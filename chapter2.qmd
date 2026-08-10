@@ -67,19 +67,19 @@ c(n, s)
 dfs = function(remain, temp_str, lst){
     if (remain == 0){
         lst <- append(lst, list(temp_str))
-        lst
+        return(lst)
     }
 
     if (remain >= 1) {
-        temp_str <- if (length(temp_str) == 0) "gang" else \
-        paste(temp_str, "gang" sep = "",)
-        lst <- dfs(remain - 1, temp_str, lst);
+        next_str <- if (temp_str == "") "gang" else
+            paste(temp_str, "gang", sep = "")
+        lst <- dfs(remain - 1, next_str, lst);
     }
 
     if (remain >= 2) {
-        temp_str <- if (length(temp_str) == 0) "gucci" else \
-        paste(temp_str, "gucci" sep = "",);
-        lst <- dfs(remain - 2, temp,lst)
+        next_str <- if (temp_str == "") "gucci" else
+            paste(temp_str, "gucci", sep = "");
+        lst <- dfs(remain - 2, next_str, lst)
     }
 
     lst
@@ -115,6 +115,8 @@ c(n, s)
 ```
 
 ## The switch
+### switch by index
+if `expr` has a numeric value equal to n, then the nth of the code blocks
 
 # Functions
 
