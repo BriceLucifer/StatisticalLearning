@@ -21,6 +21,20 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
 
+      - name: Initialize gh-pages branch when missing
+        shell: bash
+        run: |
+          if git ls-remote --exit-code --heads origin gh-pages >/dev/null 2>&1; then
+            echo "gh-pages branch already exists"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          empty_tree="$(git hash-object -t tree /dev/null)"
+          empty_commit="$(git commit-tree "$empty_tree" -m "Initialize gh-pages")"
+          git push origin "$empty_commit:refs/heads/gh-pages"
+
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
