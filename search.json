@@ -1,0 +1,732 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "My Notes on Statistical Learning",
+    "section": "",
+    "text": "This Notes is about my thoughts and code guide line on Statistical Computing",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>index</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html",
+    "href": "chapter1.html",
+    "title": "2  R Basic",
+    "section": "",
+    "text": "2.1 Use R as Calculator\n1 + 2\n\n[1] 3\n\n1 / 2\n\n[1] 0.5\n\n17 ^ 2\n\n[1] 289\n\n1 + 2 * 3\n\n[1] 7\n\n(1 + 2) * 3\n\n[1] 9",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#operator",
+    "href": "chapter1.html#operator",
+    "title": "2  R Basic",
+    "section": "2.2 Operator",
+    "text": "2.2 Operator\n\n^ exponentiation\n\n\n2 ^ 3 # 8\n\n[1] 8\n\n\n\n+ - unary plus and minus\n\n\n+3\n\n[1] 3\n\n-(-1)\n\n[1] 1\n\n\n\n: sequence operator\n\n\n1 : 3 # 1..3\n\n[1] 1 2 3\n\n\n\n%/% integer division\n\n\n7 %/% 3\n\n[1] 2\n\n\n\n%% remainder\n\n\n7 %% 3\n\n[1] 1\n\n\n\n* / multiplication, division\n\n\n2 * 3\n\n[1] 6\n\n12 / 13 # output is a double or float\n\n[1] 0.9230769\n\n\n\n+ - additon, subtraction\n\n\n1 + 2\n\n[1] 3\n\n1 - 2\n\n[1] -1",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#evalution-order",
+    "href": "chapter1.html#evalution-order",
+    "title": "2  R Basic",
+    "section": "2.3 Evalution Order",
+    "text": "2.3 Evalution Order\nOriginally evaluation of equal precedence is left to right -&gt;\nExponentiation $ ^ $ is right to left &lt;- \n\n2 ^ 3 ^ 2 # 2 ^ (9)\n\n[1] 512\n\n(2 ^ 3) ^ 2 # 8 ^ 2\n\n[1] 64",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#r-build-in-function",
+    "href": "chapter1.html#r-build-in-function",
+    "title": "2  R Basic",
+    "section": "2.4 R build-in Function",
+    "text": "2.4 R build-in Function\n\nsqrt(x) \\[\n  \\sqrt{x}\n\\]\n\n\nsqrt(12)\n\n[1] 3.464102\n\n\n\nlog(x, base=e) deflaut base is \\(e\\) \\[\n\\log_e{x}\n\\]\n\n\nlog(exp(1))\n\n[1] 1\n\n\n\nlog10(x) \\[\n\\log_{10}{x}\n\\]\n\n\nlog10(10)\n\n[1] 1\n\n\n\nsin(x) \\[\n\\sin{x}\n\\]\n\n\nsin(pi / 2)\n\n[1] 1\n\n\n\natan(x) \\[\n\\theta = \\arctan{\\frac{y}{x}}\n\\]\n\n\n4 * atan(1)\n\n[1] 3.141593",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#assignment-and-use-variable",
+    "href": "chapter1.html#assignment-and-use-variable",
+    "title": "2  R Basic",
+    "section": "2.5 Assignment and use variable",
+    "text": "2.5 Assignment and use variable\n\nz &lt;- 17 # preferred since it is unambiguous\n# it is not z &lt; -17\n17 -&gt; z\nz = 17 # in interactive use \"=\"",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#numeric-vectors",
+    "href": "chapter1.html#numeric-vectors",
+    "title": "2  R Basic",
+    "section": "2.6 Numeric Vectors",
+    "text": "2.6 Numeric Vectors\nc stands for combined, work with the vectors of values\n\nx &lt;- c(1, 2, 3, 4)\nx # can be viewed simply typing the name of the vector\n\n[1] 1 2 3 4",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#sequences",
+    "href": "chapter1.html#sequences",
+    "title": "2  R Basic",
+    "section": "2.7 Sequences",
+    "text": "2.7 Sequences\n\\(n_1 : n_2\\) generate the sequence of integers ranging from n_1 to n_2\n\n1 : 50\n\n [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25\n[26] 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50\n\n5 : -5\n\n [1]  5  4  3  2  1  0 -1 -2 -3 -4 -5",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#combining-vectors",
+    "href": "chapter1.html#combining-vectors",
+    "title": "2  R Basic",
+    "section": "2.8 Combining Vectors",
+    "text": "2.8 Combining Vectors\n\\(c\\) can be used to combine both vectors and scalars into large vectors\nReason: R stores scalar values like 10 as vectors {10,} of length of one, so that both arguements in the expression above are vectors\n\nx = c(1, 2, 3, 4)\nc(x, 10)\n\n[1]  1  2  3  4 10\n\nc(x, x)\n\n[1] 1 2 3 4 1 2 3 4",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#vector-arithmetic",
+    "href": "chapter1.html#vector-arithmetic",
+    "title": "2  R Basic",
+    "section": "2.9 Vector Arithmetic",
+    "text": "2.9 Vector Arithmetic\nBecause everything is a vector, so it is natural to expect that the type of arithemetic manipulation carried out in the previous section to also work with more general vectors\n\n2 * x + 1\n\n[1] 3 5 7 9\n\nsqrt(x)\n\n[1] 1.000000 1.414214 1.732051 2.000000",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#recycling-rule-of-vectors",
+    "href": "chapter1.html#recycling-rule-of-vectors",
+    "title": "2  R Basic",
+    "section": "2.10 Recycling Rule of Vectors",
+    "text": "2.10 Recycling Rule of Vectors\n\nc(1, 2, 3, 4) + c(1, 2)\n\n[1] 2 4 4 6\n\n# c(1, 2, 3, 4) + c(1, 2, 1, 2)\n\n\\[\n    \\begin{bmatrix}\n        1 \\\\\n        2 \\\\\n        3 \\\\\n        4\n    \\end{bmatrix} +\n    \\begin{bmatrix}\n       1 \\\\\n       2\n    \\end{bmatrix} \\xrightarrow{recyle}\n    \\begin{bmatrix}\n        1 \\\\\n        2 \\\\\n        3 \\\\\n        4\n    \\end{bmatrix} +\n    \\begin{bmatrix}\n       1 \\\\\n       2 \\\\\n       1 \\\\\n       2\n    \\end{bmatrix} \\xrightarrow{add}\n    \\begin{bmatrix}\n        2 \\\\\n        4 \\\\\n        4 \\\\\n        6\n    \\end{bmatrix}\n\\]",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#binary-operations",
+    "href": "chapter1.html#binary-operations",
+    "title": "2  R Basic",
+    "section": "2.11 Binary Operations",
+    "text": "2.11 Binary Operations\n+ addition\n- subtranction\n* multiplication\n/ division\n^ rasing to a power\n%% modulo (remainder after division)\n%/% integer division",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#the-modulo-and-integer-division-operators",
+    "href": "chapter1.html#the-modulo-and-integer-division-operators",
+    "title": "2  R Basic",
+    "section": "2.12 The modulo and Integer Division Operators",
+    "text": "2.12 The modulo and Integer Division Operators\nThe modulo operator is useful in the integer computations\n\n11 %% 3\n\n[1] 2\n\n1:10 %% 2\n\n [1] 1 0 1 0 1 0 1 0 1 0\n\n\nbut it can be used with more genreal numbers\n\n13.5 %% 2\n\n[1] 1.5\n\n13.5 %/% 2\n\n[1] 6",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#elements-and-subsets",
+    "href": "chapter1.html#elements-and-subsets",
+    "title": "2  R Basic",
+    "section": "2.13 Elements and subsets",
+    "text": "2.13 Elements and subsets\n\n# x &lt;- c(1, 2, 3, 4)\nx[3] # return the third element\n\n[1] 3\n\nx[c(1, 3)] # return the first and the third element\n\n[1] 1 3\n\nx[1:3] # return range (1, 2, 3) element\n\n[1] 1 2 3",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#negative-subscripts",
+    "href": "chapter1.html#negative-subscripts",
+    "title": "2  R Basic",
+    "section": "2.14 Negative Subscripts",
+    "text": "2.14 Negative Subscripts\nextract all the elements from x except the first and third\n\n# x &lt;- c(1, 2, 3, 4)\nx[c(-1, -3)] # x[2, 4]\n\n[1] 2 4\n\n\nIt is not possible to mix positive and negative subscripts",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#changing-vector-subsets",
+    "href": "chapter1.html#changing-vector-subsets",
+    "title": "2  R Basic",
+    "section": "2.15 Changing Vector Subsets",
+    "text": "2.15 Changing Vector Subsets\n\ny &lt;- 1:10\ny[4:6] = 0\ny\n\n [1]  1  2  3  0  0  0  7  8  9 10",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#infinity-value",
+    "href": "chapter1.html#infinity-value",
+    "title": "2  R Basic",
+    "section": "2.16 Infinity Value",
+    "text": "2.16 Infinity Value\n\n1 / 0 \n\n[1] Inf\n\n\nInf represents positive infinity, -Inf represents negative infinity\n\n-1 / 0\n\n[1] -Inf\n\n1 + Inf\n\n[1] Inf\n\n10000 / Inf\n\n[1] 0",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#not-a-number-nan",
+    "href": "chapter1.html#not-a-number-nan",
+    "title": "2  R Basic",
+    "section": "2.17 Not a Number NaN",
+    "text": "2.17 Not a Number NaN\nNaN indicates that a numerical result is undefined\n\n0 / 0\n\n[1] NaN\n\nInf - Inf\n\n[1] NaN\n\nsqrt(-1)\n\nWarning in sqrt(-1): NaNs produced\n\n\n[1] NaN",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#not-available-na",
+    "href": "chapter1.html#not-available-na",
+    "title": "2  R Basic",
+    "section": "2.18 Not Available NA",
+    "text": "2.18 Not Available NA\nThe value is indicated by NA\n\n1 + sin(NA)\n\n[1] NA\n\n\nNA is used for statistical ovservations where the value could not be recorded",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#build-in-function",
+    "href": "chapter1.html#build-in-function",
+    "title": "2  R Basic",
+    "section": "2.19 Build in Function",
+    "text": "2.19 Build in Function\n\nabs(-12) # return absolute value\n\n[1] 12\n\nsign(12) # if + -&gt; 1 else if - -&gt; -1 else 0\n\n[1] 1\n\nsqrt(4) # return the square root\n\n[1] 2\n\nexp(2) # return e ^ n\n\n[1] 7.389056\n\nlog(exp(1)) # return natual logarithms\n\n[1] 1\n\nlog10(10 ^ 2) # return common logarithms\n\n[1] 2\n\nsin(pi / 2)\n\n[1] 1\n\ncos(pi / 2)\n\n[1] 6.123234e-17\n\ntan(pi / 2) \n\n[1] 1.633124e+16\n\n# return the trigonometric functions\nasin(0)\n\n[1] 0\n\nacos(0)\n\n[1] 1.570796\n\natan(0) # return inverse trigonometric functions\n\n[1] 0\n\nfactorial(3) # return factorial coefficient\n\n[1] 6\n\nchoose(4, 2) # choose 2 out of 4 with no put back\n\n[1] 6\n\nround(1.7245, digits = 2) # round to two decimal places\n\n[1] 1.72\n\nsignif(1.7, digits = 1) # round to two significant figures\n\n[1] 2\n\nceiling(3.5)\n\n[1] 4\n\nfloor(3.5)\n\n[1] 3\n\n# rounding up and down",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#summary-function",
+    "href": "chapter1.html#summary-function",
+    "title": "2  R Basic",
+    "section": "3.1 Summary Function",
+    "text": "3.1 Summary Function\n\nsum(1:100) # 1 + ... 100\n\n[1] 5050\n\nprod(1:10) # 1 * .. 10\n\n[1] 3628800\n\n\nspecial case with NA: in any summary functions that has NA or NaN values, always return NA or NaN\n\nmin(10, NaN)\n\n[1] NaN\n\nmin(10, NA)\n\n[1] NA\n\nmax(11, NA)\n\n[1] NA\n\nmax(12, NaN)\n\n[1] NaN\n\nmin(NaN, NA) # return NA(Not Available)\n\n[1] NA\n\nmax(NaN, NA) # return NA(Not Available)\n\n[1] NA\n\nmin(10, 20, NA, na.rm = TRUE)\n\n[1] 10",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#cumulative-summaries",
+    "href": "chapter1.html#cumulative-summaries",
+    "title": "2  R Basic",
+    "section": "3.2 Cumulative Summaries",
+    "text": "3.2 Cumulative Summaries\nThese functions doesn’t have na.rm argument (NA remove)\n\ncumsum(1:10) # 1 + ...\n\n [1]  1  3  6 10 15 21 28 36 45 55\n\ncumprod(1:6) # 1 * ...\n\n[1]   1   2   6  24 120 720\n\ncummax(1:10) # max(1,n)...\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\ncummin(1:10) # min(1,n)...\n\n [1] 1 1 1 1 1 1 1 1 1 1",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#parallel-summary-functions",
+    "href": "chapter1.html#parallel-summary-functions",
+    "title": "2  R Basic",
+    "section": "3.3 Parallel Summary Functions",
+    "text": "3.3 Parallel Summary Functions\nStill have recycling rules, and accpet na.rm argument(NA remove)\n\npmin(c(1, 10), c(10, 2))\n\n[1] 1 2\n\npmax(0, c(-1, 0, 1))\n\n[1] 0 0 1",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#type-of-vectors",
+    "href": "chapter1.html#type-of-vectors",
+    "title": "2  R Basic",
+    "section": "3.4 Type of Vectors",
+    "text": "3.4 Type of Vectors\n\nb &lt;- c(TRUE, TRUE, FALSE, FALSE)\nb[1:3]\n\n[1]  TRUE  TRUE FALSE\n\nb[1]\n\n[1] TRUE\n\nb\n\n[1]  TRUE  TRUE FALSE FALSE",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#logical-conjunctions",
+    "href": "chapter1.html#logical-conjunctions",
+    "title": "2  R Basic",
+    "section": "3.5 Logical Conjunctions",
+    "text": "3.5 Logical Conjunctions\n\nx &lt;- c(1, 2, 3, 4)\nx &lt; 2 | x &gt; 3 # [TRUE, FALSE, FALSE, TRUE]\n\n[1]  TRUE FALSE FALSE  TRUE\n\n\nany for if any element matches the conditions then return true;\nall for if all elements match the conditions then return true;\n\nany(x &gt;= 4) # return all true\n\n[1] TRUE\n\nall(x &gt; 3) # return false\n\n[1] FALSE\n\n\nvectorised operation uses && or |;\nif condition uses && or ||;\nnegation uses !",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#negation",
+    "href": "chapter1.html#negation",
+    "title": "2  R Basic",
+    "section": "3.6 Negation",
+    "text": "3.6 Negation\n\n!(3 &lt; 4)\n\n[1] FALSE\n\nTRUE & !FALSE\n\n[1] TRUE",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#logic-and-na-values",
+    "href": "chapter1.html#logic-and-na-values",
+    "title": "2  R Basic",
+    "section": "3.7 Logic and NA values",
+    "text": "3.7 Logic and NA values\nx & y\n- FALSE & NA -&gt; FALSE\n- TRUE & NA -&gt; NA\n- NA & NA -&gt; NA\nx | y\n- FALSE | NA -&gt; NA\n- TRUE | NA -&gt; TRUE\n- NA | NA -&gt; NA",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#logical-subsetting",
+    "href": "chapter1.html#logical-subsetting",
+    "title": "2  R Basic",
+    "section": "3.8 logical subsetting",
+    "text": "3.8 logical subsetting\nextract subsets of vectors by using logical values\n\nx &lt;- c(1, 2, 3, 4)\nx[x &gt; 1]\n\n[1] 2 3 4",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#conditional-selection",
+    "href": "chapter1.html#conditional-selection",
+    "title": "2  R Basic",
+    "section": "3.9 conditional selection",
+    "text": "3.9 conditional selection\n\nx &lt;- 1:10\nifelse(x &gt; 5, x, -x)\n\n [1] -1 -2 -3 -4 -5  6  7  8  9 10\n\nifelse(x &gt; 5, x, 0)\n\n [1]  0  0  0  0  0  6  7  8  9 10",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#character-vectors",
+    "href": "chapter1.html#character-vectors",
+    "title": "2  R Basic",
+    "section": "3.10 Character Vectors",
+    "text": "3.10 Character Vectors\n\ns &lt;- c(\"first\", \"second\", \"third\")\ns[1:2]\n\n[1] \"first\"  \"second\"\n\ns[1] = \"initial\"\ns\n\n[1] \"initial\" \"second\"  \"third\"",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#string-manipulation",
+    "href": "chapter1.html#string-manipulation",
+    "title": "2  R Basic",
+    "section": "3.11 String Manipulation",
+    "text": "3.11 String Manipulation\n\ns\n\n[1] \"initial\" \"second\"  \"third\"  \n\nnchar(s)\n\n[1] 7 6 5\n\nsubstring(s, first = 1, last = 2:3)\n\n[1] \"in\"  \"sec\" \"th\" \n\nsubstring(s, c(1,1,1), c(2, 3, 2))\n\n[1] \"in\"  \"sec\" \"th\" \n\nsubstring(s, c(1,1,1), 2:3)\n\n[1] \"in\"  \"sec\" \"th\"",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#pasting-strings-together",
+    "href": "chapter1.html#pasting-strings-together",
+    "title": "2  R Basic",
+    "section": "3.12 Pasting Strings Together",
+    "text": "3.12 Pasting Strings Together\npaste is for glue string, with sep argument\n\npaste(\"First\", \"Second\", \"Third\")\n\n[1] \"First Second Third\"\n\npaste(\"First\", \"Second\", \"Third\", sep=\": \")\n\n[1] \"First: Second: Third\"\n\npaste(\"First\", \"Second\", \"Third\", sep=\"\")\n\n[1] \"FirstSecondThird\"\n\npaste0(\"First\", \"Second\", \"Third\")\n\n[1] \"FirstSecondThird\"",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#pasting-vectors",
+    "href": "chapter1.html#pasting-vectors",
+    "title": "2  R Basic",
+    "section": "3.13 Pasting Vectors",
+    "text": "3.13 Pasting Vectors\n\ns &lt;- c(\"first\", \"second\", \"third\")\npaste(s, \"element\", sep = \"-\")\n\n[1] \"first-element\"  \"second-element\" \"third-element\" \n\n# An additional argument, collapse\npaste(s, collapse = \" -&gt; \")\n\n[1] \"first -&gt; second -&gt; third\"",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#complex-valued-vectors",
+    "href": "chapter1.html#complex-valued-vectors",
+    "title": "2  R Basic",
+    "section": "3.14 Complex valued Vectors",
+    "text": "3.14 Complex valued Vectors\n\nz &lt;- 10 + 20i\nz\n\n[1] 10+20i\n\nsqrt(z)\n\n[1] 4.022479+2.486029i",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#checking-vector-mode",
+    "href": "chapter1.html#checking-vector-mode",
+    "title": "2  R Basic",
+    "section": "3.15 Checking vector mode",
+    "text": "3.15 Checking vector mode\n4 mode:\n1. logical 2. numeric 3. complex 4. character\n\nmode(1:10)\n\n[1] \"numeric\"\n\nlength(1:10)\n\n[1] 10\n\nz &lt;- logical(5) + 1\nmode(z)\n\n[1] \"numeric\"\n\nlogical(5)\n\n[1] FALSE FALSE FALSE FALSE FALSE\n\nnumeric(5)\n\n[1] 0 0 0 0 0",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#creating-vectors",
+    "href": "chapter1.html#creating-vectors",
+    "title": "2  R Basic",
+    "section": "3.16 Creating Vectors",
+    "text": "3.16 Creating Vectors\n\nvector('numeric', 5)\n\n[1] 0 0 0 0 0\n\nvector('logical', 5)\n\n[1] FALSE FALSE FALSE FALSE FALSE\n\nnumeric(0)\n\nnumeric(0)",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#type-coercion",
+    "href": "chapter1.html#type-coercion",
+    "title": "2  R Basic",
+    "section": "3.17 Type Coercion",
+    "text": "3.17 Type Coercion\nlogical -&gt; numeric\nnumeric -&gt; complex (without imaginary part)\nall mode -&gt; characteric",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#type-coericion-idioms",
+    "href": "chapter1.html#type-coericion-idioms",
+    "title": "2  R Basic",
+    "section": "3.18 Type Coericion Idioms",
+    "text": "3.18 Type Coericion Idioms\n\nx &lt;- 1:10\nsum(x &gt; 5) # ifelse(x &gt; 5, TRUE, FLASE) -&gt; sum\n\n[1] 5\n\n# x &gt; 5 -&gt; {0, 0, 0, 0, 0, 1, 1, 1, 1, 1}\n# cumsum() -&gt; {0, 0, 0, 0, 1, 1, 1, 1, 1}\ncumsum(x &gt; 5)\n\n [1] 0 0 0 0 0 1 2 3 4 5",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#explicit-coercion",
+    "href": "chapter1.html#explicit-coercion",
+    "title": "2  R Basic",
+    "section": "3.19 Explicit Coercion",
+    "text": "3.19 Explicit Coercion\n非0就是true\n\nas.numeric(\"1\") + as.numeric('2')\n\n[1] 3\n\nas.logical(1) & as.logical(-1)\n\n[1] TRUE\n\nas.logical(\"TRUE\")   # TRUE\n\n[1] TRUE\n\nas.logical(\"FALSE\")  # FALSE\n\n[1] FALSE\n\nas.logical(\"abc\")    # NA\n\n[1] NA",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#named-vectors",
+    "href": "chapter1.html#named-vectors",
+    "title": "2  R Basic",
+    "section": "3.20 Named Vectors",
+    "text": "3.20 Named Vectors\n\nv = 1:4\nnames(v) = c(\"A\", \"B\", \"C\", \"D\")\nv\n\nA B C D \n1 2 3 4 \n\nnames(v)\n\n[1] \"A\" \"B\" \"C\" \"D\"",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#subsetting-using-names",
+    "href": "chapter1.html#subsetting-using-names",
+    "title": "2  R Basic",
+    "section": "3.21 Subsetting Using Names",
+    "text": "3.21 Subsetting Using Names\n\nv = c(1, 2, 3, 4)\nnames(v) = c(\"A\", \"B\", \"C\", \"D\")\nv['A']\n\nA \n1 \n\nv[c('A', 'D')]\n\nA D \n1 4",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#lists",
+    "href": "chapter1.html#lists",
+    "title": "2  R Basic",
+    "section": "3.22 Lists",
+    "text": "3.22 Lists\na way fo storing things of different types in a single object\n\nlst &lt;- list(10, \"eleven\", TRUE, c(1, 2))\nlst\n\n[[1]]\n[1] 10\n\n[[2]]\n[1] \"eleven\"\n\n[[3]]\n[1] TRUE\n\n[[4]]\n[1] 1 2\n\n\nask for single element fo a list, use [[]]\n\nlst[[1]]\n\n[1] 10\n\n\nask for a subset, use []\n\nlst[1]\n\n[[1]]\n[1] 10",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#extracting-named-elements",
+    "href": "chapter1.html#extracting-named-elements",
+    "title": "2  R Basic",
+    "section": "3.23 Extracting Named Elements",
+    "text": "3.23 Extracting Named Elements\n\nlst = list(a = 10, b = \"eleven\", TRUE)\nlst[['a']]\n\n[1] 10\n\nlst$a\n\n[1] 10",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#null-object",
+    "href": "chapter1.html#null-object",
+    "title": "2  R Basic",
+    "section": "3.24 NULL object",
+    "text": "3.24 NULL object\nNULL represent nothing, has a length of 0 and can be freely coerced to either a vector or list of length 0\n\nlength(NULL)\n\n[1] 0\n\nas.numeric(NULL)\n\nnumeric(0)\n\nas.list(NULL)\n\nlist()",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#creating-patterned-sequences",
+    "href": "chapter1.html#creating-patterned-sequences",
+    "title": "2  R Basic",
+    "section": "3.25 Creating Patterned Sequences",
+    "text": "3.25 Creating Patterned Sequences\n\n1:10\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n10:1\n\n [1] 10  9  8  7  6  5  4  3  2  1\n\n1.5:7.5\n\n[1] 1.5 2.5 3.5 4.5 5.5 6.5 7.5\n\n1.5:7\n\n[1] 1.5 2.5 3.5 4.5 5.5 6.5",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#use-seq-for-more-general-purpose",
+    "href": "chapter1.html#use-seq-for-more-general-purpose",
+    "title": "2  R Basic",
+    "section": "3.26 Use seq() for more general purpose",
+    "text": "3.26 Use seq() for more general purpose\n\nseq(0, 1, by = 0.1)\n\n [1] 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0\n\nseq(0, 1, length = 11)\n\n [1] 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0\n\nseq(0, by = 0.1, length = 11)\n\n [1] 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0\n\nseq(to = 1, by = 0.1, length = 11)\n\n [1] 0.0 0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.0\n\nx &lt;- 1:10\nseq(along = x)\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\nx = numeric(0)\nseq(along = x)\n\ninteger(0)\n\n1: length(x)\n\n[1] 1 0",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter1.html#repeat-values",
+    "href": "chapter1.html#repeat-values",
+    "title": "2  R Basic",
+    "section": "3.27 repeat values",
+    "text": "3.27 repeat values\nrep(x1, x2):\nx1 : the values to be repeated x2 : how many times to repeat\n\nrep(1:4, 3)\n\n [1] 1 2 3 4 1 2 3 4 1 2 3 4\n\nrep(1:4, c(2, 3, 2 ,4))\n\n [1] 1 1 2 2 2 3 3 4 4 4 4\n\nrep(c('A', 'B', 'C'), 3)\n\n[1] \"A\" \"B\" \"C\" \"A\" \"B\" \"C\" \"A\" \"B\" \"C\"\n\n\neach argument\n\nrep(1:4, each=3)\n\n [1] 1 1 1 2 2 2 3 3 3 4 4 4\n\nrep(1:4, rep(3, 4))\n\n [1] 1 1 1 2 2 2 3 3 3 4 4 4",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>R Basic</span>"
+    ]
+  },
+  {
+    "objectID": "chapter2.html",
+    "href": "chapter2.html",
+    "title": "3  Control Flow",
+    "section": "",
+    "text": "3.1 Expession\ncan be simple expressions or compound expressions consisting of simple expression separated by semicolons or newlines and grouped within braces\nx &lt;- {10 ; 20} # return the final expression value like rust\nx\n\n[1] 20\n\nz = {x = 10; y = x^2; x + y}\nx \n\n[1] 10\n\ny \n\n[1] 100\n\nz\n\n[1] 110",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Control Flow</span>"
+    ]
+  },
+  {
+    "objectID": "chapter2.html#if-the-else-statement",
+    "href": "chapter2.html#if-the-else-statement",
+    "title": "3  Control Flow",
+    "section": "3.2 If The Else Statement",
+    "text": "3.2 If The Else Statement\n\n# c++ way\nx &lt;- 10\nif (x &gt; 0) y = sqrt(x) else y = -sqrt(x)\ny\n\n[1] 3.162278\n\n# rust or lisp or algol way\ny = if (x &gt; 0) sqrt(x) else -sqrt(x)\ny\n\n[1] 3.162278\n\n\n\n3.2.1 Combining Logical Conditions\n&& and || operate evaluate just enough of their arguments\n\nTRUE && print(TRUE)\n\n[1] TRUE\n\n\n[1] TRUE\n\n## both arguments evaluated\nTRUE || print(TRUE)\n\n[1] TRUE\n\n## only evaluate the first, because it is enough to know the whole results",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Control Flow</span>"
+    ]
+  },
+  {
+    "objectID": "chapter2.html#loops",
+    "href": "chapter2.html#loops",
+    "title": "3  Control Flow",
+    "section": "3.3 Loops",
+    "text": "3.3 Loops\nfor loop\n\ns &lt;- 0\nx &lt;- 1:10\nfor(i in 1:length(x)) s = s + x[i]\ns\n\n[1] 55\n\ns = 0\nfor(elt in x) s = s + elt\ns\n\n[1] 55\n\n\nnext is R’s continue\n\nx &lt;- 1:10\ns &lt;- 0\nfor(elt in x) {\n    if (elt &lt; 5) next\n    print(elt)\n    s = s + elt \n}\n\n[1] 5\n[1] 6\n[1] 7\n[1] 8\n[1] 9\n[1] 10\n\ns\n\n[1] 45\n\n\nwhile loop\n\nthreshold &lt;- 100\nn &lt;- 0\ns &lt;- 0\nwhile (s &lt; threshold) {\n    n = n + 1\n    s = s + n\n}\nc(n, s)\n\n[1]  14 105\n\n\n\n# gucci gang\ndfs = function(remain, temp_str, lst){\n    if (remain == 0){\n        lst &lt;- append(lst, list(temp_str))\n        return(lst)\n    }\n\n    if (remain &gt;= 1) {\n        next_str &lt;- if (temp_str == \"\") \"gang\" else\n            paste(temp_str, \"gang\", sep = \"\")\n        lst &lt;- dfs(remain - 1, next_str, lst);\n    }\n\n    if (remain &gt;= 2) {\n        next_str &lt;- if (temp_str == \"\") \"gucci\" else\n            paste(temp_str, \"gucci\", sep = \"\");\n        lst &lt;- dfs(remain - 2, next_str, lst)\n    }\n\n    lst\n}\n\ngucci.gang = function(x){\n    if (mode(x) != 'numeric') {\n        print(\"error\");\n        return(NULL);\n    }\n\n    lst &lt;- list();\n    y &lt;- '';\n    lst &lt;- dfs(x, y, lst);\n    lst &lt;- as.character(lst);\n    lst\n}\n\ngucci.gang(3)\n\n[1] \"gangganggang\" \"ganggucci\"    \"guccigang\"   \n\n\nrepeat loop with break\n\nthreshold &lt;- 100\nn &lt;- 0\ns &lt;- 0\nrepeat {\n    if (s &gt; threshold) break\n    n = n + 1\n    s = s + n\n}\nc(n, s)\n\n[1]  14 105",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Control Flow</span>"
+    ]
+  },
+  {
+    "objectID": "chapter2.html#the-switch",
+    "href": "chapter2.html#the-switch",
+    "title": "3  Control Flow",
+    "section": "3.4 The switch",
+    "text": "3.4 The switch\n\n3.4.1 switch by index\nif expr has a numeric value equal to n, then the nth of the code blocks",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Control Flow</span>"
+    ]
+  },
+  {
+    "objectID": "chapter2.html#binomial-probability",
+    "href": "chapter2.html#binomial-probability",
+    "title": "3  Control Flow",
+    "section": "5.1 Binomial Probability",
+    "text": "5.1 Binomial Probability",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Control Flow</span>"
+    ]
+  },
+  {
+    "objectID": "chapter2.html#statistical-computations",
+    "href": "chapter2.html#statistical-computations",
+    "title": "3  Control Flow",
+    "section": "5.2 Statistical Computations",
+    "text": "5.2 Statistical Computations",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Control Flow</span>"
+    ]
+  },
+  {
+    "objectID": "chapter2.html#rational-approximations",
+    "href": "chapter2.html#rational-approximations",
+    "title": "3  Control Flow",
+    "section": "5.3 Rational Approximations",
+    "text": "5.3 Rational Approximations",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Control Flow</span>"
+    ]
+  },
+  {
+    "objectID": "chapter2.html#summation-evaluation",
+    "href": "chapter2.html#summation-evaluation",
+    "title": "3  Control Flow",
+    "section": "6.1 Summation Evaluation",
+    "text": "6.1 Summation Evaluation",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Control Flow</span>"
+    ]
+  },
+  {
+    "objectID": "chapter2.html#poker-hands",
+    "href": "chapter2.html#poker-hands",
+    "title": "3  Control Flow",
+    "section": "6.2 Poker Hands",
+    "text": "6.2 Poker Hands",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Control Flow</span>"
+    ]
+  },
+  {
+    "objectID": "chapter2.html#some-useful-functions",
+    "href": "chapter2.html#some-useful-functions",
+    "title": "3  Control Flow",
+    "section": "6.3 Some Useful Functions",
+    "text": "6.3 Some Useful Functions",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Control Flow</span>"
+    ]
+  },
+  {
+    "objectID": "chapter2.html#frequencies-of-gap-lengths",
+    "href": "chapter2.html#frequencies-of-gap-lengths",
+    "title": "3  Control Flow",
+    "section": "6.4 Frequencies of Gap Lengths",
+    "text": "6.4 Frequencies of Gap Lengths",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Control Flow</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3.html",
+    "href": "chapter3.html",
+    "title": "4  Matrices",
+    "section": "",
+    "text": "4.1 Creating Matrices",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Matrices</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3.html#matrix-subsets",
+    "href": "chapter3.html#matrix-subsets",
+    "title": "4  Matrices",
+    "section": "4.2 Matrix Subsets",
+    "text": "4.2 Matrix Subsets",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Matrices</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3.html#simple-computation-with-matrices",
+    "href": "chapter3.html#simple-computation-with-matrices",
+    "title": "4  Matrices",
+    "section": "4.3 Simple Computation with Matrices",
+    "text": "4.3 Simple Computation with Matrices",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Matrices</span>"
+    ]
+  },
+  {
+    "objectID": "chapter3.html#matrix-operations",
+    "href": "chapter3.html#matrix-operations",
+    "title": "4  Matrices",
+    "section": "4.4 Matrix Operations",
+    "text": "4.4 Matrix Operations",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Matrices</span>"
+    ]
+  },
+  {
+    "objectID": "chapter4.html",
+    "href": "chapter4.html",
+    "title": "5  Numerical Computation",
+    "section": "",
+    "text": "5.1 Computer Arithmetic",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Numerical Computation</span>"
+    ]
+  },
+  {
+    "objectID": "chapter4.html#simple-graphics",
+    "href": "chapter4.html#simple-graphics",
+    "title": "5  Numerical Computation",
+    "section": "5.2 Simple Graphics",
+    "text": "5.2 Simple Graphics",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Numerical Computation</span>"
+    ]
+  },
+  {
+    "objectID": "chapter4.html#root-finding",
+    "href": "chapter4.html#root-finding",
+    "title": "5  Numerical Computation",
+    "section": "5.3 Root Finding",
+    "text": "5.3 Root Finding",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Numerical Computation</span>"
+    ]
+  },
+  {
+    "objectID": "chapter4.html#optimization",
+    "href": "chapter4.html#optimization",
+    "title": "5  Numerical Computation",
+    "section": "5.4 Optimization",
+    "text": "5.4 Optimization",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Numerical Computation</span>"
+    ]
+  },
+  {
+    "objectID": "chapter4.html#maximum-likelihood",
+    "href": "chapter4.html#maximum-likelihood",
+    "title": "5  Numerical Computation",
+    "section": "5.5 Maximum Likelihood",
+    "text": "5.5 Maximum Likelihood",
+    "crumbs": [
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Numerical Computation</span>"
+    ]
+  },
+  {
+    "objectID": "chapter5.html",
+    "href": "chapter5.html",
+    "title": "6  Statistical Data",
+    "section": "",
+    "text": "6.1 Categorical Data",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Statistical Data</span>"
+    ]
+  },
+  {
+    "objectID": "chapter5.html#data-frames",
+    "href": "chapter5.html#data-frames",
+    "title": "6  Statistical Data",
+    "section": "6.2 Data Frames",
+    "text": "6.2 Data Frames",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Statistical Data</span>"
+    ]
+  },
+  {
+    "objectID": "chapter5.html#reading-data",
+    "href": "chapter5.html#reading-data",
+    "title": "6  Statistical Data",
+    "section": "6.3 Reading Data",
+    "text": "6.3 Reading Data",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Statistical Data</span>"
+    ]
+  },
+  {
+    "objectID": "chapter5.html#printing-data",
+    "href": "chapter5.html#printing-data",
+    "title": "6  Statistical Data",
+    "section": "6.4 Printing Data",
+    "text": "6.4 Printing Data",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Statistical Data</span>"
+    ]
+  },
+  {
+    "objectID": "chapter5.html#low-level-data-input",
+    "href": "chapter5.html#low-level-data-input",
+    "title": "6  Statistical Data",
+    "section": "6.5 Low-level Data Input",
+    "text": "6.5 Low-level Data Input",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Statistical Data</span>"
+    ]
+  },
+  {
+    "objectID": "chapter5.html#connections",
+    "href": "chapter5.html#connections",
+    "title": "6  Statistical Data",
+    "section": "6.6 Connections",
+    "text": "6.6 Connections",
+    "crumbs": [
+      "<span class='chapter-number'>6</span>  <span class='chapter-title'>Statistical Data</span>"
+    ]
+  }
+]
