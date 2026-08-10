@@ -1,0 +1,25 @@
+# Quarto generated output and caches
+/.quarto/
+/_book/
+/*_files/
+/*_cache/
+*.knit.md
+*.utf8.md
+
+# R session and IDE state
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+
+# Local environment variables and secrets
+.Renviron
+.env
+.env.*
+!.env.example
+
+# Jupyter temporary files
+.ipynb_checkpoints/
+
+# macOS metadata
+.DS_Store

@@ -1,0 +1,130 @@
+# Control Flow
+## Expession
+can be simple expressions or compound expressions consisting of simple expression separated by semicolons or newlines and grouped within braces
+```{r}
+x <- {10 ; 20} # return the final expression value like rust
+x
+z = {x = 10; y = x^2; x + y}
+x 
+y 
+z
+```
+## If The Else Statement
+```{r}
+# c++ way
+x <- 10
+if (x > 0) y = sqrt(x) else y = -sqrt(x)
+y
+
+# rust or lisp or algol way
+y = if (x > 0) sqrt(x) else -sqrt(x)
+y
+```
+### Combining Logical Conditions
+`&&` and `||` operate evaluate just enough of their arguments
+```{r}
+TRUE && print(TRUE)
+## both arguments evaluated
+TRUE || print(TRUE)
+## only evaluate the first, because it is enough to know the whole results
+```
+## Loops
+`for` loop
+```{r}
+s <- 0
+x <- 1:10
+for(i in 1:length(x)) s = s + x[i]
+s
+s = 0
+for(elt in x) s = s + elt
+s
+```
+`next` is R's continue
+```{r}
+x <- 1:10
+s <- 0
+for(elt in x) {
+    if (elt < 5) next
+    print(elt)
+    s = s + elt 
+}
+s
+```
+`while` loop
+```{r}
+threshold <- 100
+n <- 0
+s <- 0
+while (s < threshold) {
+    n = n + 1
+    s = s + n
+}
+c(n, s)
+```
+
+```{r}
+# gucci gang
+dfs = function(remain, temp_str, lst){
+    if (remain == 0){
+        lst <- append(lst, list(temp_str))
+        lst
+    }
+
+    if (remain >= 1) {
+        temp_str <- if (length(temp_str) == 0) "gang" else \
+        paste(temp_str, "gang" sep = "",)
+        lst <- dfs(remain - 1, temp_str, lst);
+    }
+
+    if (remain >= 2) {
+        temp_str <- if (length(temp_str) == 0) "gucci" else \
+        paste(temp_str, "gucci" sep = "",);
+        lst <- dfs(remain - 2, temp,lst)
+    }
+
+    lst
+}
+
+gucci.gang = function(x){
+    if (mode(x) != 'numeric') {
+        print("error");
+        return(NULL);
+    }
+
+    lst <- list();
+    y <- '';
+    lst <- dfs(x, y, lst);
+    lst <- as.character(lst);
+    lst
+}
+
+gucci.gang(3)
+```
+
+`repeat` loop with break
+```{r}
+threshold <- 100
+n <- 0
+s <- 0
+repeat {
+    if (s > threshold) break
+    n = n + 1
+    s = s + n
+}
+c(n, s)
+```
+
+## The switch
+
+# Functions
+
+# More Examples
+## Binomial Probability
+## Statistical Computations
+## Rational Approximations
+
+# Vectorized Computation
+## Summation Evaluation
+## Poker Hands
+## Some Useful Functions
+## Frequencies of Gap Lengths

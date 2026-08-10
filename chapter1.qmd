@@ -1,0 +1,569 @@
+# R Basic
+
+## Use R as Calculator
+
+```{r}
+1 + 2
+1 / 2
+17 ^ 2
+1 + 2 * 3
+(1 + 2) * 3
+```
+
+## Operator
+- \^ exponentiation
+
+```{r}
+2 ^ 3 # 8
+```
+
+- \+ \- unary plus and minus
+
+```{r}
++3
+-(-1)
+```
+
+- : sequence operator
+```{r}
+1 : 3 # 1..3
+```
+- %/% integer division 
+
+```{r}
+7 %/% 3
+```
+
+- %% remainder
+
+```{r}
+7 %% 3
+```
+
+- \* / multiplication, division
+
+```{r}
+2 * 3
+12 / 13 # output is a double or float
+```
+
+- \+ \- additon, subtraction
+
+```{r}
+1 + 2
+1 - 2
+```
+
+## Evalution Order
+Originally evaluation of equal precedence is left to right ->   
+<mark>*Exponentiation $ \^ $ is right to left <-* </mark>
+
+
+```{r}
+2 ^ 3 ^ 2 # 2 ^ (9)
+(2 ^ 3) ^ 2 # 8 ^ 2
+```
+
+## R build-in Function
+1. sqrt(x)
+$$
+  \sqrt{x}
+$$
+```{r}
+sqrt(12)
+```
+2. log(x, base=e) deflaut base is $e$
+$$
+    \log_e{x}
+$$
+
+```{r}
+log(exp(1))
+```
+3. log10(x)
+$$
+    \log_{10}{x}
+$$
+
+```{r}
+log10(10)
+```
+
+4. sin(x)
+$$
+    \sin{x}
+$$
+
+```{r}
+sin(pi / 2)
+```
+
+5. atan(x)
+$$
+    \theta = \arctan{\frac{y}{x}}
+$$
+
+```{r}
+4 * atan(1)
+```
+
+## Assignment and use variable
+
+```{r}
+z <- 17 # preferred since it is unambiguous
+# it is not z < -17
+17 -> z
+z = 17 # in interactive use "="
+```
+
+## Numeric Vectors
+c stands for combined, work with the vectors of values
+```{r}
+x <- c(1, 2, 3, 4)
+x # can be viewed simply typing the name of the vector
+```
+
+## Sequences
+$n_1 : n_2$ generate the sequence of integers ranging from n_1 to n_2
+```{r}
+1 : 50
+5 : -5
+```
+
+## Combining Vectors
+$c$ can be used to combine both vectors and scalars into large vectors  
+Reason: R stores scalar values like 10 as vectors {10,} of length of one, so that both arguements in the expression above are vectors
+```{r}
+x = c(1, 2, 3, 4)
+c(x, 10)
+c(x, x)
+```
+
+## Vector Arithmetic
+Because everything is a vector, so it is natural to expect that the type of arithemetic manipulation carried out in the previous section to also work with more general vectors
+
+```{r}
+2 * x + 1
+sqrt(x)
+```
+
+## Recycling Rule of Vectors
+
+```{r}
+c(1, 2, 3, 4) + c(1, 2)
+# c(1, 2, 3, 4) + c(1, 2, 1, 2)
+```
+
+$$
+    \begin{bmatrix}
+        1 \\
+        2 \\
+        3 \\
+        4
+    \end{bmatrix} + 
+    \begin{bmatrix}
+       1 \\
+       2
+    \end{bmatrix} \xrightarrow{recyle}
+    \begin{bmatrix}
+        1 \\
+        2 \\
+        3 \\
+        4
+    \end{bmatrix} +
+    \begin{bmatrix}
+       1 \\
+       2 \\
+       1 \\
+       2
+    \end{bmatrix} \xrightarrow{add}
+    \begin{bmatrix}
+        2 \\
+        4 \\
+        4 \\
+        6
+    \end{bmatrix}
+$$
+
+## Binary Operations
+`+` addition  
+`-` subtranction    
+`*` multiplication  
+`/` division  
+`^` rasing to a power  
+`%%` modulo (remainder after division)    
+`%/%` integer division
+
+## The modulo and Integer Division Operators
+The modulo operator is useful in the integer computations
+```{r}
+11 %% 3
+1:10 %% 2
+```
+but it can be used with more genreal numbers
+```{r}
+13.5 %% 2
+13.5 %/% 2
+```
+
+## Elements and subsets
+```{r}
+# x <- c(1, 2, 3, 4)
+x[3] # return the third element
+x[c(1, 3)] # return the first and the third element
+x[1:3] # return range (1, 2, 3) element
+```
+
+## Negative Subscripts
+extract all the elements from x except the first and third
+```{r}
+# x <- c(1, 2, 3, 4)
+x[c(-1, -3)] # x[2, 4]
+```
+It is not possible to mix positive and negative subscripts
+
+## Changing Vector Subsets
+```{r}
+y <- 1:10
+y[4:6] = 0
+y
+```
+
+## Infinity Value
+```{r}
+1 / 0 
+```
+`Inf` represents positive infinity, `-Inf` represents negative infinity
+```{r}
+-1 / 0
+1 + Inf
+10000 / Inf
+```
+
+## Not a Number NaN
+`NaN` indicates that a numerical result is undefined
+```{r}
+0 / 0
+Inf - Inf
+sqrt(-1)
+```
+
+## Not Available NA
+The value is indicated by `NA`
+```{r}
+1 + sin(NA)
+```
+`NA` is used for statistical ovservations where the value could not be recorded
+
+## Build in Function 
+```{r}
+abs(-12) # return absolute value
+sign(12) # if + -> 1 else if - -> -1 else 0
+sqrt(4) # return the square root
+exp(2) # return e ^ n
+log(exp(1)) # return natual logarithms
+log10(10 ^ 2) # return common logarithms
+sin(pi / 2)
+cos(pi / 2)
+tan(pi / 2) 
+# return the trigonometric functions
+asin(0)
+acos(0)
+atan(0) # return inverse trigonometric functions
+factorial(3) # return factorial coefficient
+choose(4, 2) # choose 2 out of 4 with no put back
+round(1.7245, digits = 2) # round to two decimal places
+signif(1.7, digits = 1) # round to two significant figures
+ceiling(3.5)
+floor(3.5)
+# rounding up and down
+```
+
+# statistical Tables
+- `d` -> probability densities function
+- `p` -> cumulative probability function
+- `q` -> inverse cumulative distribution function
+
+1. `norm` Normal Distribution
+2. `chisq` Chi-squared Distribution
+3. `t` t Distribution
+4. `F` F Distribution
+5. `binom` Binomial Distribution
+6. `pois` Poisson distribution
+```
+# 1. 标准正态分布：mean = 0, sd = 1
+pnorm(q, mean = 0, sd = 1)
+
+# 2. 卡方分布：必须提供自由度 df
+pchisq(q, df, ncp = 0)
+
+# 3. t 分布：必须提供自由度 df
+pt(q, df)
+
+# 4. F 分布：必须提供两个自由度
+pf(q, df1, df2, ncp = 0)
+
+# 5. 二项分布：试验次数和成功概率都必须提供
+pbinom(q, size, prob)
+
+# 6. 泊松分布：必须提供均值/发生率 lambda
+ppois(q, lambda)
+```
+
+```{r}
+pnorm(2)
+pbinom(44, 100, 0.5)
+dpois(3, 5)
+```
+
+## Summary Function
+```{r}
+sum(1:100) # 1 + ... 100
+prod(1:10) # 1 * .. 10
+```
+special case with `NA`: in any summary functions that has `NA` or `NaN` values, always return `NA` or `NaN`
+```{r}
+min(10, NaN)
+min(10, NA)
+max(11, NA)
+max(12, NaN)
+min(NaN, NA) # return NA(Not Available)
+max(NaN, NA) # return NA(Not Available)
+min(10, 20, NA, na.rm = TRUE)
+```
+
+## Cumulative Summaries
+These functions doesn't have `na.rm` argument (NA remove)
+```{r}
+cumsum(1:10) # 1 + ...
+cumprod(1:6) # 1 * ...
+cummax(1:10) # max(1,n)...
+cummin(1:10) # min(1,n)...
+```
+
+## Parallel Summary Functions
+Still have recycling rules, and accpet `na.rm` argument(NA remove)
+```{r}
+pmin(c(1, 10), c(10, 2))
+pmax(0, c(-1, 0, 1))
+```
+
+## Type of Vectors
+```{r}
+b <- c(TRUE, TRUE, FALSE, FALSE)
+b[1:3]
+b[1]
+b
+```
+
+## Logical Conjunctions
+```{r}
+x <- c(1, 2, 3, 4)
+x < 2 | x > 3 # [TRUE, FALSE, FALSE, TRUE]
+```
+`any` for if any element matches the conditions then return true;    
+`all` for if all elements match the conditions then return true;
+```{r}
+any(x >= 4) # return all true
+all(x > 3) # return false
+```
+vectorised operation uses `&&` or `|`;   
+if condition uses `&&` or `||`;   
+negation uses `!`
+
+## Negation
+```{r}
+!(3 < 4)
+TRUE & !FALSE
+```
+
+## Logic and NA values
+x & y    
+- FALSE & NA -> FALSE   
+- TRUE & NA -> NA   
+- NA & NA -> NA    
+x | y     
+- FALSE | NA -> NA   
+- TRUE | NA -> TRUE   
+- NA | NA -> NA     
+
+## logical subsetting
+extract subsets of vectors by using logical values
+```{r}
+x <- c(1, 2, 3, 4)
+x[x > 1]
+```
+
+## conditional selection
+```{r}
+x <- 1:10
+ifelse(x > 5, x, -x)
+ifelse(x > 5, x, 0)
+```
+
+## Character Vectors
+```{r}
+s <- c("first", "second", "third")
+s[1:2]
+s[1] = "initial"
+s
+```
+
+## String Manipulation
+```{r}
+s
+nchar(s)
+substring(s, first = 1, last = 2:3)
+substring(s, c(1,1,1), c(2, 3, 2))
+substring(s, c(1,1,1), 2:3)
+```
+
+## Pasting Strings Together
+`paste` is for glue string, with sep argument
+```{r}
+paste("First", "Second", "Third")
+paste("First", "Second", "Third", sep=": ")
+paste("First", "Second", "Third", sep="")
+paste0("First", "Second", "Third")
+```
+## Pasting Vectors
+```{r}
+s <- c("first", "second", "third")
+paste(s, "element", sep = "-")
+# An additional argument, collapse
+paste(s, collapse = " -> ")
+```
+
+## Complex valued Vectors
+```{r}
+z <- 10 + 20i
+z
+sqrt(z)
+```
+
+## Checking vector mode
+4 mode:   
+1. logical
+2. numeric
+3. complex
+4. character
+```{r}
+mode(1:10)
+length(1:10)
+z <- logical(5) + 1
+mode(z)
+logical(5)
+numeric(5)
+```
+
+## Creating Vectors
+```{r}
+vector('numeric', 5)
+vector('logical', 5)
+numeric(0)
+```
+
+## Type Coercion
+logical -> numeric     
+numeric -> complex (without imaginary part)   
+all mode -> characteric    
+
+## Type Coericion Idioms
+```{r}
+x <- 1:10
+sum(x > 5) # ifelse(x > 5, TRUE, FLASE) -> sum
+# x > 5 -> {0, 0, 0, 0, 0, 1, 1, 1, 1, 1}
+# cumsum() -> {0, 0, 0, 0, 1, 1, 1, 1, 1}
+cumsum(x > 5)
+```
+
+## Explicit Coercion
+非0就是true
+```{r}
+as.numeric("1") + as.numeric('2')
+as.logical(1) & as.logical(-1)
+as.logical("TRUE")   # TRUE
+as.logical("FALSE")  # FALSE
+as.logical("abc")    # NA
+```
+
+## Named Vectors
+```{r}
+v = 1:4
+names(v) = c("A", "B", "C", "D")
+v
+names(v)
+```
+## Subsetting Using Names
+```{r}
+v = c(1, 2, 3, 4)
+names(v) = c("A", "B", "C", "D")
+v['A']
+v[c('A', 'D')]
+```
+
+## Lists
+a way fo storing things of different types in a single object
+```{r}
+lst <- list(10, "eleven", TRUE, c(1, 2))
+lst
+```
+ask for single element fo a list, use `[[]]`
+```{r}
+lst[[1]]
+```
+ask for a subset, use `[]`
+```{r}
+lst[1]
+```
+
+## Extracting Named Elements
+```{r}
+lst = list(a = 10, b = "eleven", TRUE)
+lst[['a']]
+lst$a
+```
+
+## NULL object
+NULL represent nothing, has a length of 0 and can be freely coerced to either a vector or list of length 0
+```{r}
+length(NULL)
+as.numeric(NULL)
+as.list(NULL)
+```
+
+## Creating Patterned Sequences
+```{r}
+1:10
+10:1
+1.5:7.5
+1.5:7
+```
+
+## Use seq() for more general purpose
+```{r}
+seq(0, 1, by = 0.1)
+seq(0, 1, length = 11)
+seq(0, by = 0.1, length = 11)
+seq(to = 1, by = 0.1, length = 11)
+x <- 1:10
+seq(along = x)
+x = numeric(0)
+seq(along = x)
+1: length(x)
+```
+
+## repeat values
+`rep(x1, x2)`:   
+x1 : the values to be repeated
+x2 : how many times to repeat
+```{r}
+rep(1:4, 3)
+rep(1:4, c(2, 3, 2 ,4))
+rep(c('A', 'B', 'C'), 3)
+```
+`each` argument
+```{r}
+rep(1:4, each=3)
+rep(1:4, rep(3, 4))
+```
