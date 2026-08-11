@@ -843,6 +843,7 @@ Reason: R stores scalar values like 10 as vectors {10,} of length of one, so tha
 <li><code>d</code> -&gt; probability densities function</li>
 <li><code>p</code> -&gt; cumulative probability function</li>
 <li><code>q</code> -&gt; inverse cumulative distribution function</li>
+<li><code>r</code> -&gt; random gen (r*(n: repeat_time, size: eachtime try how many times, prob: the probability of succes))</li>
 </ul>
 <ol type="1">
 <li><code>norm</code> Normal Distribution</li>
@@ -865,7 +866,7 @@ pt(q, df)
 pf(q, df1, df2, ncp = 0)
 
 # 5. 二项分布：试验次数和成功概率都必须提供
-pbinom(q, size, prob)
+pbinom(q, size, prob), q 最多成功多少次
 
 # 6. 泊松分布：必须提供均值/发生率 lambda
 ppois(q, lambda)</code></pre>
