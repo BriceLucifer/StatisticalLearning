@@ -283,6 +283,7 @@ floor(3.5)
 - `d` -> probability densities function
 - `p` -> cumulative probability function
 - `q` -> inverse cumulative distribution function
+- `r` -> random gen (r*(n: repeat_time, size: eachtime try how many times, prob: the probability of succes))
 
 1. `norm` Normal Distribution
 2. `chisq` Chi-squared Distribution
@@ -304,7 +305,7 @@ pt(q, df)
 pf(q, df1, df2, ncp = 0)
 
 # 5. 二项分布：试验次数和成功概率都必须提供
-pbinom(q, size, prob)
+pbinom(q, size, prob), q 最多成功多少次
 
 # 6. 泊松分布：必须提供均值/发生率 lambda
 ppois(q, lambda)

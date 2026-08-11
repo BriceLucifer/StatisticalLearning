@@ -116,17 +116,289 @@ c(n, s)
 
 ## The switch
 ### switch by index
-if `expr` has a numeric value equal to n, then the nth of the code blocks
+if `expr` has a numeric value equal to n, then the nth of the code blocks is executed.
+```{r}
+k <- 5
+switch(k, "I", "II", "III", "IV", "V", "VI")
+```
+if `n` falls outside, return `NULL`   
+switch be tag
+```{r}
+x = rnorm(10) # create 5 number from random normal distribution
+loc.est = "mean"
+y <- switch(loc.est,
+    median = median(x),
+    mean = mean(x)
+)
+z <- mean(x)
+z == y
+```
+
+if no matching tag:   
+1. has an untagged code block, auto match    
+2. has no untagged code block, return `NULL`
+
+```{r}
+3 == switch("c",
+    a = 1, 
+    3,
+    b = 2
+)
+
+r <- switch("C", a = 1, b = 2)
+mode(r)
+```
+if code blocks is empty, match the nearest tag, in this case "a" and "b" both return "gotcha"
+```{r}
+"gotcha" == switch("a",
+    a = ,
+    b = "gotcha",
+    c = "missed"
+)
+```
+
 
 # Functions
+```{r}
+square = function(x){
+    x * x
+}
 
-# More Examples
+square(1:10) # * is element wise
+
+sumsq = function(x){
+    sum(square(x))
+}
+sumsq(1:10)
+
+sumsq = function(x){
+    sum(square(x - mean(x)))
+}
+sumsq(1:10)
+
+hypot = function(a, b){
+    z <- sqrt(a ^ 2 + b ^ 2)
+    return(z)
+}
+hypot(3, 4)
+```
+iterative procedure for computing square roots for positive numbers
+```{r}
+square.root = function(x, iterator = 10, start = 1){
+    r.new = start
+    r.old = 0
+    while (iterator != 0){
+        if (all(r.new == r.old)) break
+        r.old = r.new
+        r.new = (r.new + x / r.new) / 2
+        iterator = iterator - 1
+    }
+    r.new
+}
+square.root(2, 10)
+square.root(1:10)
+```
 ## Binomial Probability
+```{r}
+# suppose a coin is tossed 100 times, the coin probebility is 50%, let's work out the probability of getting between 45 and 55
+d <- dbinom(45:55, 100, 1/2)
+d
+sum(d)
+# the chance between 40 and 60 in 100 tossed
+round(sum(dbinom(40:60, 100, 0.5)), digits = 4)
+# the chance between 35 and 65 heads in 100 tossed
+round(sum(dbinom(35:65, 100, 0.5)), digits = 4)
+```
+
+### Coin Tossing Experiment
+`runif(x)` generate x numbers between 0 and 1
+```{r}
+runif(10) < 0.5
+sum(runif(10) < 0.5) # return logical vector coercion to numeric vector then sum, TRUE := 1, FALSE := 0
+```
+
+Coin Tossing: get the number of heads in 100 tosses, let's repoeat the process 10000 times and see wht proportion of values fall between 45 and 55
+```{r}
+nheads = numeric(10000)
+nheads
+for(i in 1:10000){
+    nheads[i] = sum(runif(100) < 0.5)
+}
+mean(45 <= nheads & nheads <= 55)
+```
+package the experiment   
+through the coin in ntosses round, has the phead, for a round like this repeat nreps times
+```{r}
+cointoss = function(ntosses, pheads, nreps = 1){
+    nheads = numeric(nreps)
+    for(i in 1:nreps){
+        #0 -------- pheads ---------------- 1
+        #   正面区域          反面区域
+        nheads[i] = sum(runif(ntosses) < pheads)
+    }
+
+    nheads
+}
+```
 ## Statistical Computations
+$n$ is sample size, $\overline{y}$ is the mean, $s$ is standard deviation
+$$
+    t = \frac{\overline{y_1} - \overline{y_2}}{s_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}} \
+$$
+$s_e$ is standard error
+$$
+    s_e = s_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}
+$$
+$s_p$ is pooled estimate of the standard deviation(合并标准差估计)
+$$
+    s_p^2 = \frac{(n_1 - 1)s_1^2 + (n_2 - 1)s_2^2}{n_1 + n_2 - 2} \\
+
+    t = \frac{\overline{y_1} - \overline{y_2}}{s_e}
+$$
+`var(x)`：方差 $s^2$
+`sd(x)`：标准差 $s$
+```{r}
+diff.mean = function(y1, y2) {
+    mean(y1) - mean(y2)
+}
+
+sp = function(y1, y2){
+    n1 = length(y1)
+    n2 = length(y2)
+    sqrt(((n1 - 1) * var(y1) + (n2 - 1) * var(y2)) / (n1 + n2 - 2))
+}
+
+pooled.se = function(y1, y2) {
+    n1 = length(y1)
+    n2 = length(y2)
+
+    sp(y1, y2) * sqrt(1 / n1 + 1 / n2)
+}
+
+t.val = function(y1, y2){
+    diff.mean(y1, y2) / pooled.se(y1, y2)
+}
+
+ttest = function(y1, y2){
+    n1 = length(y1)
+    n2 = length(y2)
+    tval = t.val(y1, y2)
+    pval = 2 * pt(-abs(tval), n1 + n2 - 2)
+    list(t = tval, df = n1 + n2 -2, pval = pval)
+    # df = degree of freedom
+    # t = mean / 差距随机波动多少
+    # pval = 观察到当前这么大或者更大的差距,概率为pval%
+}
+
+y1 = rnorm(10)
+y2 = rnorm(10) + 2
+y1
+y2
+ttest(y1, y2)
+```
+
 ## Rational Approximations
+```{r}
+cf.expand = function(x, n = 5) {
+    cf = numeric(n)
+    for(i in 1:n){
+        cf[i] = round(x)
+        delta = x - cf[i]
+        x = 1 / delta
+    }
+    cf
+}
+cf.expand(pi, 7)
+```
+continued fraction can be reduced to a simple ratio as follows
+Start with $ N = c_n $ and $ D = 1$. Then for $ i = n-1\ldots1$ set
+$$
+    T = N \
+    N = N * c_i + D
+    D = T
+$$
+
+```{r}
+rat.approx = function(x, n){
+    cf = cf.expand(x, n)
+    num = cf[n]
+    den = 1
+    if (n > 1){
+        for (j in (n - 1) : 1){
+            tmp = num
+            num = cf[j] * tmp + den
+            den = tmp
+        }
+    }
+
+    if (den > 0){
+        c(num, den)
+    } else {
+        c(-num, -den)
+    }
+}
+rat.approx(pi, 1)
+print(pi, digits = 15)
+```
 
 # Vectorized Computation
-## Summation Evaluation
+use the *apply mechanism only if the result has the same shape and already requires additional function calls
+```
+apply(x, MARGIN, FUN) x: Input Data MARGIN: row manipulate FUN: Column manipulate
+lapply(X, FUN) l -> list x: Input Data, FUN: the operation you want to apply
+sapply(X, FUN) return list | vector , see the compiler optimization if can return vector
+vapply(X, FUN, FUN.VALUE) FUN.VALUE is the return value type
+mapply(FUN, input...) mulitple apply
+```
+```{r}
+# Stirling numbers 
+s1 = function(n, k){
+    x = 0:k
+    temp = sapply(x, function(input){
+        (-1) ^ (k - input) * choose(k, input) * input ^ n
+    })
+    (1 / factorial(k)) * sum(temp)
+}
+s1(10, 3)
+
+s2 = function(n, k){
+    x = 0:k
+    sum( (-1) ^ (k - x) * choose(k, x) * x ^ n) / factorial(k)
+}
+s2(10, 3) == s1(10, 3)
+```
 ## Poker Hands
+```{r}
+x = c(2, 1, 3, 2, 1, 2, 3, 3, 3, 1, 1, 3, 1, 3, 2, 2, 1, 2, 2, 3)
+hands = function(x) {
+    number.of.hands = length(x) %/% 3
+    i = seq_len(number.of.hands)
+
+    a = x[3 * i - 2]
+    b = x[3 * i - 1]
+    c = x[3 * i]
+
+    hand1 = a != b & a != c & b != c
+    hand3 = a == b & b == c
+    hand2 = !hand1 & !hand3
+
+    c(
+        hand1 = sum(hand1),
+        hand2 = sum(hand2),
+        hand3 = sum(hand3)
+    )
+}
+hands(x)
+system.time(hands(x))
+```
+
 ## Some Useful Functions
+```{r}
+which(c(TRUE, FALSE, FALSE, TRUE)) # return the indices of TRUEs
+which.max(c(6:10, 13:5)) # return the first max/min index
+diff(c(1, 3, 6, 4)) # return consecutive difference
+x <- rbinom(20, 10, 0.5) + 1
+x
+tabulate(x) # 统计每个正整数出现了多少次
+```
 ## Frequencies of Gap Lengths
